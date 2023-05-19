@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?><PMML version="4.2" xmlns="http://www.dmg.org/PMML-4_2" xmlns:xsi="http://www.w3.org/2001/XMLSchema"><Header copyright="(C) Copyright IBM Corp. 1994, 2016">
+<Application name="IBM SPSS Modeler Common" version="18.0.0.0"/>
+<Timestamp>Fri May 19 12:09:32 2023</Timestamp>
+</Header><DataDictionary numberOfFields="5">
+<DataField dataType="double" displayName="P_Chl_30" name="P_Chl_30" optype="continuous"/>
+<DataField dataType="double" displayName="S_Eh_30" name="S_Eh_30" optype="continuous"/>
+<DataField dataType="double" displayName="S_N-NH4+_30" name="S_N-NH4+_30" optype="continuous"/>
+<DataField dataType="double" displayName="S_TOC_30" name="S_TOC_30" optype="continuous"/>
+<DataField dataType="double" displayName="Se_F" name="Se_F" optype="continuous"/>
+</DataDictionary><TransformationDictionary>
+<DerivedField dataType="double" name="P_Chl_30Norm" optype="continuous">
+<NormContinuous field="P_Chl_30">
+<LinearNorm norm="-1.80022675631705" orig="36.2"/>
+<LinearNorm norm="1.08709345188228" orig="44.5"/>
+</NormContinuous>
+</DerivedField>
+<DerivedField dataType="double" name="S_Eh_30Norm" optype="continuous">
+<NormContinuous field="S_Eh_30">
+<LinearNorm norm="-2.06303283874557" orig="238"/>
+<LinearNorm norm="0.962415914475447" orig="294.07"/>
+</NormContinuous>
+</DerivedField>
+<DerivedField dataType="double" name="S_N-NH4+_30Norm" optype="continuous">
+<NormContinuous field="S_N-NH4+_30">
+<LinearNorm norm="-0.981237432596347" orig="0.67"/>
+<LinearNorm norm="1.81633311991239" orig="2.01"/>
+</NormContinuous>
+</DerivedField>
+<DerivedField dataType="double" name="S_TOC_30Norm" optype="continuous">
+<NormContinuous field="S_TOC_30">
+<LinearNorm norm="-1.05451242916645" orig="60.5"/>
+<LinearNorm norm="1.57560430764777" orig="64.5"/>
+</NormContinuous>
+</DerivedField>
+<DerivedField dataType="double" name="Se_FNorm" optype="continuous">
+<NormContinuous field="Se_F">
+<LinearNorm norm="-1.25010709800502" orig="0.09"/>
+<LinearNorm norm="1.78386069041165" orig="0.63"/>
+</NormContinuous>
+</DerivedField>
+</TransformationDictionary><NeuralNetwork activationFunction="tanh" algorithmName="MLP" functionName="regression"><Extension extender="spss.com" name="modelID" value="4"/><MiningSchema>
+<MiningField importance="0.437672504067708" name="P_Chl_30"/>
+<MiningField importance="0.272538761982198" name="S_Eh_30"/>
+<MiningField importance="0.082922058592347" name="S_N-NH4+_30"/>
+<MiningField importance="0.206866675357747" name="S_TOC_30"/>
+<MiningField name="Se_F" usageType="predicted"/>
+</MiningSchema><ModelExplanation><PredictiveModelQuality dataUsage="training" meanSquaredError="0.0077901774825811" r-squared="0.702832280201753" targetField="Se_F"><LiftData><ModelLiftGraph><LiftGraph><XCoordinates><Array n="20" type="int">1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20</Array></XCoordinates><YCoordinates><Array n="20" type="real">0.64 0.4 0.63 0.45 0.42 0.54 0.27 0.31 0.3 0.09 0.21 0.09 0.1 0.28 0.29 0.25 0.2 0.15 0.15 0.32</Array></YCoordinates><BoundaryValues><Array n="20" type="real">0.543149622062006 0.538081524043339 0.525212720904086 0.509842314425555 0.508847431313449 0.423344956759833 0.301590756407211 0.29813194006725 0.287242992708747 0.226947255754419 0.212811652226342 0.186051235057869 0.171384468695042 0.170471916820875 0.170396821715019 0.170153520191005 0.169981082821154 0.16988067058685 0.169869267081828 0.169867548905072</Array></BoundaryValues><BoundaryValueMeans><Array n="20" type="real">0.543149622062006 0.538081524043339 0.525212720904086 0.509842314425555 0.508847431313449 0.423344956759833 0.301590756407211 0.29813194006725 0.287242992708747 0.226947255754419 0.212811652226342 0.186051235057869 0.171384468695042 0.170471916820875 0.170396821715019 0.170153520191005 0.169981082821154 0.16988067058685 0.169869267081828 0.169867548905072</Array></BoundaryValueMeans></LiftGraph></ModelLiftGraph></LiftData></PredictiveModelQuality><PredictiveModelQuality dataUsage="test" meanSquaredError="0.00788017441998888" r-squared="0.787309732254011" targetField="Se_F"><LiftData><ModelLiftGraph><LiftGraph><XCoordinates><Array n="4" type="int">1 2 3 4</Array></XCoordinates><YCoordinates><Array n="4" type="real">0.63 0.3 0.34 0.09</Array></YCoordinates><BoundaryValues><Array n="4" type="real">0.540758856587251 0.395605697817295 0.250461585925137 0.169994618270025</Array></BoundaryValues><BoundaryValueMeans><Array n="4" type="real">0.540758856587251 0.395605697817295 0.250461585925137 0.169994618270025</Array></BoundaryValueMeans></LiftGraph></ModelLiftGraph></LiftData></PredictiveModelQuality></ModelExplanation><NeuralInputs>
+<NeuralInput id="0">
+<DerivedField dataType="double" optype="continuous">
+<FieldRef field="P_Chl_30Norm"/>
+</DerivedField>
+</NeuralInput>
+<NeuralInput id="1">
+<DerivedField dataType="double" optype="continuous">
+<FieldRef field="S_Eh_30Norm"/>
+</DerivedField>
+</NeuralInput>
+<NeuralInput id="2">
+<DerivedField dataType="double" optype="continuous">
+<FieldRef field="S_N-NH4+_30Norm"/>
+</DerivedField>
+</NeuralInput>
+<NeuralInput id="3">
+<DerivedField dataType="double" optype="continuous">
+<FieldRef field="S_TOC_30Norm"/>
+</DerivedField>
+</NeuralInput>
+</NeuralInputs><NeuralLayer numberOfNeurons="1">
+<Neuron bias="-1.05608393316167" id="4">
+<Con from="0" weight="1.40299036410614"/>
+<Con from="1" weight="0.71975592777126"/>
+<Con from="2" weight="-0.238468007309708"/>
+<Con from="3" weight="-0.591942787525499"/>
+</Neuron>
+</NeuralLayer><NeuralLayer activationFunction="identity" numberOfNeurons="1">
+<Neuron bias="0.257647041676273" id="5">
+<Con from="4" weight="1.0590478300016"/>
+</Neuron>
+</NeuralLayer><NeuralOutputs>
+<NeuralOutput outputNeuron="5">
+<DerivedField dataType="double" optype="continuous">
+<FieldRef field="Se_FNorm"/>
+</DerivedField>
+</NeuralOutput>
+</NeuralOutputs></NeuralNetwork></PMML>

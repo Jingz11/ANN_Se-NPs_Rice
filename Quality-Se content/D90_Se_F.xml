@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?><PMML version="4.2" xmlns="http://www.dmg.org/PMML-4_2" xmlns:xsi="http://www.w3.org/2001/XMLSchema"><Header copyright="(C) Copyright IBM Corp. 1994, 2016">
+<Application name="IBM SPSS Modeler Common" version="18.0.0.0"/>
+<Timestamp>Fri May 19 12:10:08 2023</Timestamp>
+</Header><DataDictionary numberOfFields="5">
+<DataField dataType="double" displayName="P_Chl_90" name="P_Chl_90" optype="continuous"/>
+<DataField dataType="double" displayName="P_Gs_90" name="P_Gs_90" optype="continuous"/>
+<DataField dataType="double" displayName="P_Pn_90" name="P_Pn_90" optype="continuous"/>
+<DataField dataType="double" displayName="S_pH_90" name="S_pH_90" optype="continuous"/>
+<DataField dataType="double" displayName="Se_F" name="Se_F" optype="continuous"/>
+</DataDictionary><TransformationDictionary>
+<DerivedField dataType="double" name="P_Chl_90Norm" optype="continuous">
+<NormContinuous field="P_Chl_90">
+<LinearNorm norm="-1.28931924358886" orig="12.2"/>
+<LinearNorm norm="1.435152288978" orig="29.97"/>
+</NormContinuous>
+</DerivedField>
+<DerivedField dataType="double" name="P_Gs_90Norm" optype="continuous">
+<NormContinuous field="P_Gs_90">
+<LinearNorm norm="-1.54827004236324" orig="80"/>
+<LinearNorm norm="1.58513361480049" orig="180"/>
+</NormContinuous>
+</DerivedField>
+<DerivedField dataType="double" name="P_Pn_90Norm" optype="continuous">
+<NormContinuous field="P_Pn_90">
+<LinearNorm norm="-1.19811534611975" orig="4.1"/>
+<LinearNorm norm="1.98263470974337" orig="9.8"/>
+</NormContinuous>
+</DerivedField>
+<DerivedField dataType="double" name="S_pH_90Norm" optype="continuous">
+<NormContinuous field="S_pH_90">
+<LinearNorm norm="-1.77807243689612" orig="6.99"/>
+<LinearNorm norm="1.72282159846146" orig="7.4"/>
+</NormContinuous>
+</DerivedField>
+<DerivedField dataType="double" name="Se_FNorm" optype="continuous">
+<NormContinuous field="Se_F">
+<LinearNorm norm="-1.04548567988403" orig="0.09"/>
+<LinearNorm norm="2.26817232246026" orig="0.64"/>
+</NormContinuous>
+</DerivedField>
+</TransformationDictionary><NeuralNetwork activationFunction="tanh" algorithmName="MLP" functionName="regression"><Extension extender="spss.com" name="modelID" value="6"/><MiningSchema>
+<MiningField importance="0.0936305536903635" name="P_Chl_90"/>
+<MiningField importance="0.370128403158246" name="P_Gs_90"/>
+<MiningField importance="0.178012585168438" name="P_Pn_90"/>
+<MiningField importance="0.358228457982952" name="S_pH_90"/>
+<MiningField name="Se_F" usageType="predicted"/>
+</MiningSchema><ModelExplanation><PredictiveModelQuality dataUsage="training" meanSquaredError="0.00223083146733888" r-squared="0.905013443578625" targetField="Se_F"><LiftData><ModelLiftGraph><LiftGraph><XCoordinates><Array n="20" type="int">1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 25</Array></XCoordinates><YCoordinates><Array n="20" type="real">0.64 0.63 0.45 0.4 0.34 0.3 0.42 0.15 0.32 0.19 0.29 0.28 0.3 0.21 0.21 0.18 0.17 0.09 0.19 0.66</Array></YCoordinates><BoundaryValues><Array n="20" type="real">0.631657033755529 0.63026521611293 0.430454894634819 0.394283726284678 0.351699114601597 0.342145934525139 0.316902128271595 0.291736247625104 0.272753294561798 0.270811184838389 0.269678087238809 0.252044674596551 0.247865132512711 0.207861903571145 0.2063828150683 0.185965519409774 0.175804665277355 0.170183783335041 0.169431091696944 0.0983145360957754</Array></BoundaryValues><BoundaryValueMeans><Array n="20" type="real">0.631657033755529 0.63026521611293 0.430454894634819 0.394283726284678 0.351699114601597 0.342145934525139 0.316902128271595 0.291736247625104 0.272753294561798 0.270811184838389 0.269678087238809 0.252044674596551 0.247865132512711 0.207861903571145 0.2063828150683 0.185965519409774 0.175804665277355 0.170183783335041 0.169431091696944 0.115999902531854</Array></BoundaryValueMeans></LiftGraph></ModelLiftGraph></LiftData></PredictiveModelQuality><PredictiveModelQuality dataUsage="test" meanSquaredError="0.00246614881122373" r-squared="0.52800979689498" targetField="Se_F"><LiftData><ModelLiftGraph><LiftGraph><XCoordinates><Array n="4" type="int">1 2 3 4</Array></XCoordinates><YCoordinates><Array n="4" type="real">0.28 0.25 0.2 0.09</Array></YCoordinates><BoundaryValues><Array n="4" type="real">0.274982285450618 0.262537837639714 0.115749838902664 0.0391656536582902</Array></BoundaryValues><BoundaryValueMeans><Array n="4" type="real">0.274982285450618 0.262537837639714 0.115749838902664 0.0391656536582902</Array></BoundaryValueMeans></LiftGraph></ModelLiftGraph></LiftData></PredictiveModelQuality></ModelExplanation><NeuralInputs>
+<NeuralInput id="0">
+<DerivedField dataType="double" optype="continuous">
+<FieldRef field="P_Chl_90Norm"/>
+</DerivedField>
+</NeuralInput>
+<NeuralInput id="1">
+<DerivedField dataType="double" optype="continuous">
+<FieldRef field="P_Gs_90Norm"/>
+</DerivedField>
+</NeuralInput>
+<NeuralInput id="2">
+<DerivedField dataType="double" optype="continuous">
+<FieldRef field="P_Pn_90Norm"/>
+</DerivedField>
+</NeuralInput>
+<NeuralInput id="3">
+<DerivedField dataType="double" optype="continuous">
+<FieldRef field="S_pH_90Norm"/>
+</DerivedField>
+</NeuralInput>
+</NeuralInputs><NeuralLayer numberOfNeurons="2">
+<Neuron bias="-0.0763729952711591" id="4">
+<Con from="0" weight="-0.629037327687838"/>
+<Con from="1" weight="0.538113482608222"/>
+<Con from="2" weight="0.157275104810742"/>
+<Con from="3" weight="-1.29434183740808"/>
+</Neuron>
+<Neuron bias="-1.74447289714974" id="5">
+<Con from="0" weight="-0.253704788815748"/>
+<Con from="1" weight="1.77448995199275"/>
+<Con from="2" weight="-0.421806851524991"/>
+<Con from="3" weight="-2.01562128282071"/>
+</Neuron>
+</NeuralLayer><NeuralLayer activationFunction="identity" numberOfNeurons="1">
+<Neuron bias="1.14987387918845" id="6">
+<Con from="4" weight="-1.236927893305"/>
+<Con from="5" weight="2.29649104660496"/>
+</Neuron>
+</NeuralLayer><NeuralOutputs>
+<NeuralOutput outputNeuron="6">
+<DerivedField dataType="double" optype="continuous">
+<FieldRef field="Se_FNorm"/>
+</DerivedField>
+</NeuralOutput>
+</NeuralOutputs></NeuralNetwork></PMML>

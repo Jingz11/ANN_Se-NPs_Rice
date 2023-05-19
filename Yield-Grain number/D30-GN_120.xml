@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?><PMML version="4.2" xmlns="http://www.dmg.org/PMML-4_2" xmlns:xsi="http://www.w3.org/2001/XMLSchema"><Header copyright="(C) Copyright IBM Corp. 1994, 2016">
+<Application name="IBM SPSS Modeler Common" version="18.0.0.0"/>
+<Timestamp>Fri May 19 12:08:06 2023</Timestamp>
+</Header><DataDictionary numberOfFields="5">
+<DataField dataType="double" displayName="GN_120" name="GN_120" optype="continuous"/>
+<DataField dataType="double" displayName="P_Chl_30" name="P_Chl_30" optype="continuous"/>
+<DataField dataType="double" displayName="P_Ht_30" name="P_Ht_30" optype="continuous"/>
+<DataField dataType="double" displayName="S_EC_30" name="S_EC_30" optype="continuous"/>
+<DataField dataType="double" displayName="S_Eh_30" name="S_Eh_30" optype="continuous"/>
+</DataDictionary><TransformationDictionary>
+<DerivedField dataType="double" name="GN_120Norm" optype="continuous">
+<NormContinuous field="GN_120">
+<LinearNorm norm="-1.24604555550226" orig="94.67"/>
+<LinearNorm norm="1.8132684381182" orig="180"/>
+</NormContinuous>
+</DerivedField>
+<DerivedField dataType="double" name="P_Chl_30Norm" optype="continuous">
+<NormContinuous field="P_Chl_30">
+<LinearNorm norm="-1.77188530406069" orig="35.7"/>
+<LinearNorm norm="1.67834813137912" orig="46.9"/>
+</NormContinuous>
+</DerivedField>
+<DerivedField dataType="double" name="P_Ht_30Norm" optype="continuous">
+<NormContinuous field="P_Ht_30">
+<LinearNorm norm="-1.58333106179047" orig="44"/>
+<LinearNorm norm="1.61169331022654" orig="61"/>
+</NormContinuous>
+</DerivedField>
+<DerivedField dataType="double" name="S_EC_30Norm" optype="continuous">
+<NormContinuous field="S_EC_30">
+<LinearNorm norm="-1.78153596664028" orig="0.28"/>
+<LinearNorm norm="1.07932470971636" orig="0.48"/>
+</NormContinuous>
+</DerivedField>
+<DerivedField dataType="double" name="S_Eh_30Norm" optype="continuous">
+<NormContinuous field="S_Eh_30">
+<LinearNorm norm="-1.40768935412012" orig="238.43"/>
+<LinearNorm norm="1.42494224379842" orig="294.7"/>
+</NormContinuous>
+</DerivedField>
+</TransformationDictionary><NeuralNetwork activationFunction="tanh" algorithmName="MLP" functionName="regression"><Extension extender="spss.com" name="modelID" value="1"/><MiningSchema>
+<MiningField importance="0.347020637598427" name="P_Chl_30"/>
+<MiningField importance="0.33643313039097" name="P_Ht_30"/>
+<MiningField importance="0.142275031885849" name="S_EC_30"/>
+<MiningField importance="0.174271200124755" name="S_Eh_30"/>
+<MiningField name="GN_120" usageType="predicted"/>
+</MiningSchema><ModelExplanation><PredictiveModelQuality dataUsage="training" meanSquaredError="37.5019900761075" r-squared="0.946983706647" targetField="GN_120"><LiftData><ModelLiftGraph><LiftGraph><XCoordinates><Array n="18" type="int">1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18</Array></XCoordinates><YCoordinates><Array n="18" type="real">180 172.33 176 161 140 156 126 137.33 137 126 124 117 116 124 103 102 94.67 93</Array></YCoordinates><BoundaryValues><Array n="18" type="real">173.842060719269 173.635993007804 166.245630803575 157.247371298772 154.791971926846 152.397746743887 133.822115303057 133.029762027358 130.869051379236 129.992572157215 128.878941744784 124.571641797079 119.029283418811 117.155405397392 100.521821794502 98.7552021743443 94.478400997997 90.2927816280399</Array></BoundaryValues><BoundaryValueMeans><Array n="18" type="real">173.842060719269 173.635993007804 166.245630803575 157.247371298772 154.791971926846 152.397746743887 133.822115303057 133.029762027358 130.869051379236 129.992572157215 128.878941744784 124.571641797079 119.029283418811 117.155405397392 100.521821794502 98.7552021743443 94.478400997997 90.2927816280399</Array></BoundaryValueMeans></LiftGraph></ModelLiftGraph></LiftData></PredictiveModelQuality><PredictiveModelQuality dataUsage="test" meanSquaredError="118.064969337606" r-squared="0.661209003846589" targetField="GN_120"><LiftData><ModelLiftGraph><LiftGraph><XCoordinates><Array n="8" type="int">1 2 3 4 5 6 7 8</Array></XCoordinates><YCoordinates><Array n="8" type="real">161 152.33 140 124.67 127 114 124 100</Array></YCoordinates><BoundaryValues><Array n="8" type="real">169.877886578414 156.30507771324 137.335236188941 132.857276987476 114.787718151846 104.418748183891 101.006249488321 97.5268655028087</Array></BoundaryValues><BoundaryValueMeans><Array n="8" type="real">169.877886578414 156.30507771324 137.335236188941 132.857276987476 114.787718151846 104.418748183891 101.006249488321 97.5268655028087</Array></BoundaryValueMeans></LiftGraph></ModelLiftGraph></LiftData></PredictiveModelQuality></ModelExplanation><NeuralInputs>
+<NeuralInput id="0">
+<DerivedField dataType="double" optype="continuous">
+<FieldRef field="P_Chl_30Norm"/>
+</DerivedField>
+</NeuralInput>
+<NeuralInput id="1">
+<DerivedField dataType="double" optype="continuous">
+<FieldRef field="P_Ht_30Norm"/>
+</DerivedField>
+</NeuralInput>
+<NeuralInput id="2">
+<DerivedField dataType="double" optype="continuous">
+<FieldRef field="S_EC_30Norm"/>
+</DerivedField>
+</NeuralInput>
+<NeuralInput id="3">
+<DerivedField dataType="double" optype="continuous">
+<FieldRef field="S_Eh_30Norm"/>
+</DerivedField>
+</NeuralInput>
+</NeuralInputs><NeuralLayer numberOfNeurons="3">
+<Neuron bias="0.165007251342681" id="4">
+<Con from="0" weight="-0.374369735149921"/>
+<Con from="1" weight="-1.4465067314439"/>
+<Con from="2" weight="0.520783443613938"/>
+<Con from="3" weight="-0.483315816675423"/>
+</Neuron>
+<Neuron bias="-0.0966847279034042" id="5">
+<Con from="0" weight="0.55054010423469"/>
+<Con from="1" weight="-0.569184454401255"/>
+<Con from="2" weight="-0.0100336083290036"/>
+<Con from="3" weight="0.029702778450184"/>
+</Neuron>
+<Neuron bias="-0.374558289290746" id="6">
+<Con from="0" weight="-0.178287198109601"/>
+<Con from="1" weight="-0.378854154789842"/>
+<Con from="2" weight="0.082067023714191"/>
+<Con from="3" weight="-0.477376606006111"/>
+</Neuron>
+</NeuralLayer><NeuralLayer activationFunction="identity" numberOfNeurons="1">
+<Neuron bias="0.145544703298389" id="7">
+<Con from="4" weight="-1.02595300328847"/>
+<Con from="5" weight="0.691813368523789"/>
+<Con from="6" weight="-0.224044342316469"/>
+</Neuron>
+</NeuralLayer><NeuralOutputs>
+<NeuralOutput outputNeuron="7">
+<DerivedField dataType="double" optype="continuous">
+<FieldRef field="GN_120Norm"/>
+</DerivedField>
+</NeuralOutput>
+</NeuralOutputs></NeuralNetwork></PMML>
